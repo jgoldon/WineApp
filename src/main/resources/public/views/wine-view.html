@@ -1,0 +1,19 @@
+<div class="container pad-top">
+  <table class="table winetable">
+      <tr>
+          <td><h3>Details for {{wine.name}}</h3></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Name</td>
+          <td>{{wine.name}}</td>
+      </tr>
+      <tr>
+          <td>Description</td>
+          <td>{{wine.description}}</td>
+      </tr>
+  </table>
+  <div>
+      <a class="btn btn-primary" ui-sref="editWine({id:wine.id})">Edit</a>
+  </div>
+</div>

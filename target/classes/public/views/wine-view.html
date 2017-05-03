@@ -1,0 +1,35 @@
+<div class="container pad-top">
+  <table class="table winetable">
+      <tr>
+          <td><h3>Details for {{wine.name}}</h3></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Name</td>
+          <td>{{wine.name}}</td>
+      </tr>
+      <tr>
+          <td>Description</td>
+          <td>{{wine.description}}</td>
+      </tr>
+      <tr>
+          <td>Wreck Condition</td>
+          <td>{{wine.condition}}</td>
+      </tr>
+      <tr>
+          <td>Year Discovered</td>
+          <td>{{wine.yearDiscovered}}</td>
+      </tr>
+      <tr>
+          <td>Depth of Wreck</td>
+          <td>{{wine.depth}}</td>
+      </tr>
+      <tr>
+          <td>Location</td>
+          <td>{{wine.latitude}}, {{wine.longitude}}</td>
+      </tr>
+  </table>
+  <div>
+      <a class="btn btn-primary" ui-sref="editWine({id:wine.id})">Edit</a>
+  </div>
+</div>
