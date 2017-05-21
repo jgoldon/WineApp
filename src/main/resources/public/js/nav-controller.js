@@ -16,7 +16,11 @@ angular.module('navController', [])
 			},
 			{
 				name: 'Wines',
-				url: '#/Wines'
+				url: '#/wines'
+			},
+			{
+				name: 'Register',
+				url: '#/Register'
 			}
 		]
 	});

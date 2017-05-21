@@ -31,4 +31,11 @@ angular.module('app.controllers', []).controller('WineListController', function(
   };
 
   $scope.loadWine(); // Load a wine which can be edited on UI
+}).controller('UserRegisterController', function($scope, $state, $stateParams, User){
+  $scope.user = new User();
+    $scope.register = function() {
+        $scope.user.$save(function() {
+            $state.go('home');
+        });
+    };
 });

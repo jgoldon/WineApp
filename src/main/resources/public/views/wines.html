@@ -7,8 +7,7 @@
       </tr>
       <tr ng-repeat="wine in wines">
           <td>{{wine.name}}</td>
-          <td>{{wine.description}}</td>
-          <td>{{wine.yearDiscovered}}</td>
+          <td>{{wine.region}}</td>
           <td>
               <a class="btn btn-primary" ui-sref="viewWine({id:wine.id})">View</a>
               <a class="btn btn-danger"  ng-click="deleteWine(wine)">Delete</a>

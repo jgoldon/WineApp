@@ -1,5 +1,7 @@
 package com.wine.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -15,10 +17,10 @@ public class Wine {
     private long id;
 
     @NotNull
-    private String region;
+    public String region;
 
     @NotNull
-    private String name;
+    public String name;
 
     public Wine() {}
     public Wine(long id){
@@ -29,4 +31,12 @@ public class Wine {
         this.region = region;
         this.name = name;
     }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }

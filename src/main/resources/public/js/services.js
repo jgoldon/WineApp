@@ -8,4 +8,10 @@ angular.module('app.services', []).factory('Wine', function($resource) {
     this.showPopup=function(message){
         return $window.confirm(message);
     }
+}).factory('User', function($resource) {
+    return $resource('/api/v1/users/:id', { id: '@id' }, {
+        update: {
+            method: 'PUT'
+        }
+    });
 });

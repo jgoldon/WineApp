@@ -26,7 +26,7 @@
 
 	app.config(function($stateProvider, $urlRouterProvider, $controllerProvider){
 		var origController = app.controller
-		app.controller = function (name, constructor){
+		app.controller = function (name,  constructor){
 			$controllerProvider.register(name, constructor);
 			return origController.apply(this, arguments);
 		}
@@ -45,6 +45,14 @@
 					pageTitle: 'Home'
 				}
 			})
+            .state('register', {
+                url: "/register",
+                templateUrl: viewsPrefix + "register.html",
+                data: {
+                    pageTitle: 'Register'
+                },
+				controller: 'UserRegisterController'
+            })
 			.state('wines',{
 	        url:'/wines',
 	        templateUrl: viewsPrefix + 'wines.html',
