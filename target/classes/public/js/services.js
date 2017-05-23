@@ -14,4 +14,10 @@ angular.module('app.services', []).factory('Wine', function($resource) {
             method: 'PUT'
         }
     });
+}).factory('Auth', function($resource) {
+    return $resource('/api/v1/users/auth/:id', { id: '@id' }, {
+        update: {
+            method: 'PUT'
+        }
+    });
 });

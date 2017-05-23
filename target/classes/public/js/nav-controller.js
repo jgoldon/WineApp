@@ -21,6 +21,10 @@ angular.module('navController', [])
 			{
 				name: 'Register',
 				url: '#/Register'
-			}
+			},
+            {
+                name: 'Login',
+                url: '#/Login'
+            }
 		]
 	});

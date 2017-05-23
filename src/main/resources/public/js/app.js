@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('app', ['ui.router', 'navController', 'ngAnimate', 'ui.bootstrap', 'ngResource', 'app.controllers', 'app.services'])
+	var app = angular.module('app', ['ui.router', 'navController', 'ngAnimate', 'ui.bootstrap', 'ngResource', 'app.controllers', 'app.services']);
 
 	// define for requirejs loaded modules
 	define('app', [], function() { return app; });
@@ -24,17 +24,35 @@
 		}
 	}
 
-	app.config(function($stateProvider, $urlRouterProvider, $controllerProvider){
-		var origController = app.controller
+	app.config(function($stateProvider, $urlRouterProvider, $controllerProvider, $httpProvider){
+		var origController = app.controller;
 		app.controller = function (name,  constructor){
 			$controllerProvider.register(name, constructor);
 			return origController.apply(this, arguments);
-		}
+		};
 
 		var viewsPrefix = 'views/';
 
+        $httpProvider.interceptors.push(['$q', '$location', '$window', function($q, $location, $window) {
+            return {
+                'request': function (config) {
+                    config.headers = config.headers || {};
+                    if ($window.localStorage.getItem("token")) {
+                        config.headers.Authorization = $window.localStorage.getItem("token");
+                    }
+                    return config;
+                },
+                'responseError': function(response) {
+                    if(response.status === 401 || response.status === 403) {
+                        $location.path('/signin');
+                    }
+                    return $q.reject(response);
+                }
+            };
+        }]);
+
 		// For any unmatched url, send to /
-		$urlRouterProvider.otherwise("/")
+		$urlRouterProvider.otherwise("/");
 
 		$stateProvider
 			// you can set this to no template if you just want to use the html in the page
@@ -52,6 +70,14 @@
                     pageTitle: 'Register'
                 },
 				controller: 'UserRegisterController'
+            })
+            .state('login', {
+                url: "/login",
+                templateUrl: viewsPrefix + "login.html",
+                data: {
+                    pageTitle: 'Login'
+                },
+                controller: 'UserLoginController'
             })
 			.state('wines',{
 	        url:'/wines',
