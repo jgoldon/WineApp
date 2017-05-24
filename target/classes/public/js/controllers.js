@@ -38,12 +38,13 @@ angular.module('app.controllers', []).controller('WineListController', function(
             $state.go('home');
         });
     };
-}).controller('UserLoginController', function($scope, $state, $stateParams, Auth){
+}).controller('UserLoginController', function($scope, $state, $stateParams, Auth, $rootScope){
     $scope.auth = new Auth();
     $scope.login = function() {
         $scope.auth.$save(function(respone) {
             window.localStorage.setItem('token', respone.token);
             window.localStorage.setItem('username', $scope.auth.username);
+            $rootScope.$broadcast("userLogged");
             $state.go('home');
         });
     };

@@ -72,6 +72,7 @@
             <li ng-repeat="page in pages" ng-class="{active: isUrl(page.url)}" ng-include="'nav-item.html'">
             </li>
           </ul>
+          <a ng-if="isLogged" ng-click="logout()">Logout</a>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
