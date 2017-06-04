@@ -36,11 +36,11 @@ angular.module('navController', [])
 			},
 			{
 				name: 'Register',
-				url: '#/Register'
+				url: '#/register'
 			},
             {
                 name: 'Login',
-                url: '#/Login'
+                url: '#/login'
             }
 		]
 	});
