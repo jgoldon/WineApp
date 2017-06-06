@@ -22,14 +22,30 @@ public class Wine {
     @NotNull
     public String name;
 
+    @NotNull
+    public String category;
+
+    @NotNull
+    public String varietal;
+
+    @NotNull
+    public int vintage;
+
+    public String description;
+
+
     public Wine() {}
     public Wine(long id){
         this.id = id;
     }
 
-    public Wine(String region, String name) {
+    public Wine(String region, String name, String category, String varietal, int vintage, String description) {
         this.region = region;
         this.name = name;
+        this.category = category;
+        this.varietal = varietal;
+        this.vintage = vintage;
+        this.description = description;
     }
     public Long getId() {
         return id;
