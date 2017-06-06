@@ -32,10 +32,16 @@
   <div>
       <a class="btn btn-primary" ui-sref="editWine({id:wine.id})">Edit</a>
   </div>
+    <br>
     <div>
         <a class="btn btn-primary" ui-sref="addReview({id:wine.id})">Add review</a>
     </div>
+    <br>
     <div ng-repeat="review in reviews">
-        {{review.body}} Created: {{review.created}}
+        <h5><b>Stars: {{review.stars}}</b></h5>
+        <h4><i>{{review.body}}</i></h4>
+        Created: <u>{{review.created}}</u> by <b>{{review.username}}</b>
+        <br>
+        <br>
     </div>
 </div>
