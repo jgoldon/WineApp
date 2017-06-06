@@ -95,7 +95,11 @@
 	        url:'/wine/:id/edit',
 	        templateUrl: viewsPrefix + 'wine-edit.html',
 	        controller:'WineEditController'
-	    })
+	    }).state('addReview',{
+	    	url:'/wine/:id/reviews/new',
+			templateUrl: viewsPrefix + 'review-add.html',
+			controller:'ReviewController'
+		})
 	})
 	.directive('updateTitle', ['$rootScope', '$timeout',
 		function($rootScope, $timeout) {

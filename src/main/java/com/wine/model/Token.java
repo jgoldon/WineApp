@@ -60,7 +60,7 @@ public class Token implements Authentication {
 
     @Override
     public Object getPrincipal() {
-        return null;
+        return this;
     }
 
     @Override

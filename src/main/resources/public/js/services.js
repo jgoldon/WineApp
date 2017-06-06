@@ -20,4 +20,10 @@ angular.module('app.services', []).factory('Wine', function($resource) {
             method: 'PUT'
         }
     });
-});
+}).factory('Review', function($resource) {
+    return $resource('/api/v1/reviews/:id', { id: '@id' }, {
+        update: {
+            method: 'PUT'
+        }
+    });
+});;

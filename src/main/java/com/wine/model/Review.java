@@ -17,7 +17,7 @@ public class Review {
     public long wineId;
 
     @NotNull
-    public long userId;
+    public String username;
 
     @NotNull
     public String body;

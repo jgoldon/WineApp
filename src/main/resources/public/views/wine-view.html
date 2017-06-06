@@ -16,4 +16,10 @@
   <div>
       <a class="btn btn-primary" ui-sref="editWine({id:wine.id})">Edit</a>
   </div>
+    <div>
+        <a class="btn btn-primary" ui-sref="addReview({id:wine.id})">Add review</a>
+    </div>
+    <div ng-repeat="review in reviews">
+        {{review.body}} Created: {{review.created}}
+    </div>
 </div>

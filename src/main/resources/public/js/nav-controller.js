@@ -33,11 +33,13 @@ angular.module('navController', [])
 			{
 				name: 'Wines',
 				url: '#/wines'
-			},
+
+            },
 			{
 				name: 'Register',
 				url: '#/register'
-			},
+
+            },
             {
                 name: 'Login',
                 url: '#/login'

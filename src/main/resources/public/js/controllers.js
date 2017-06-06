@@ -9,8 +9,9 @@ angular.module('app.controllers', []).controller('WineListController', function(
       });
     }
   };
-}).controller('WineViewController', function($scope, $stateParams, Wine) {
+}).controller('WineViewController', function($scope, $stateParams, Wine, Review) {
   $scope.wine = Wine.get({ id: $stateParams.id }); //Get a single wine. Issues a GET to /api/v1/wines/:id
+    $scope.reviews = Review.query({id: $scope.wine.id});
 }).controller('WineCreateController', function($scope, $state, $stateParams, Wine) {
   $scope.wine = new Wine();  //create new wine instance. Properties will be set via ng-model on UI
 
@@ -46,6 +47,15 @@ angular.module('app.controllers', []).controller('WineListController', function(
             window.localStorage.setItem('username', $scope.auth.username);
             $rootScope.$broadcast("userLogged");
             $state.go('home');
+        });
+    };
+}).controller('ReviewController', function($scope, $state, $stateParams, Review) {
+    $scope.review = new Review();  //create new wine instance. Properties will be set via ng-model on UI
+    $scope.wineId = $stateParams.id;
+    $scope.addReview = function() { //create a new wine. Issues a POST to /api/v1/wines
+        $scope.review.wineId = $scope.wineId;
+        $scope.review.$save(function() {
+            $state.go('wines'); // on success go back to the list i.e. wines state.
         });
     };
 });
