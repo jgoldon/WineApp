@@ -61,6 +61,10 @@ public class WineController {
         Wine entity = wineDao.findOne(id);
         entity.name = wine.name;
         entity.region = wine.region;
+        entity.category = wine.category;
+        entity.varietal = wine.varietal;
+        entity.vintage = wine.vintage;
+        entity.description = wine.description;
         wineDao.save(entity);
         return entity;
     }
