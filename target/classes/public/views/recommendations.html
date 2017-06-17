@@ -1,0 +1,15 @@
+<div class="container pad-top">
+    <table class="table recommend">
+        <tr>
+            <td><h3>Recommendations</h3></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="recommend in recommends">
+            <td>{{recommend.wine.name}}</td>
+            <td>{{recommend.value}}</td>
+            <td>
+                <a class="btn btn-primary" ui-sref="viewWine({id:recommend.wine.id})">View</a>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -71,8 +71,8 @@
           <ul class="nav navbar-nav">
             <li ng-repeat="page in pages" ng-if="(page.name != 'Login') || (!isLogged)" ng-class="{active: isUrl(page.url)}" ng-include="'nav-item.html'">
              </li>
-            <li ng-if="isLogged" ng-click="logout()">Logout</li>
-          </ul>
+           </ul>
+           <a class="btn btn-default" role="button" ng-if="isLogged" ng-click="logout()">Logout</a>
          </div><!--/.nav-collapse -->
       </div>
     </nav>

@@ -24,6 +24,11 @@ angular.module('app.services', []).factory('Wine', function($resource) {
     return $resource('/api/v1/reviews/:id', { id: '@id' }, {
         update: {
             method: 'PUT'
+        },
+        query:{
+            method:'GET',isArray:true
         }
     });
-});;
+}).factory('Recommend', function($resource){
+    return $resource('/api/v1/recommends')
+});

@@ -36,6 +36,10 @@ angular.module('navController', [])
 
             },
 			{
+				name: 'Recommendations',
+				url: '#/recommends'
+			},
+			{
 				name: 'Register',
 				url: '#/register'
 

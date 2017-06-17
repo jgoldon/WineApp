@@ -99,6 +99,10 @@
 	    	url:'/wine/:id/reviews/new',
 			templateUrl: viewsPrefix + 'review-add.html',
 			controller:'ReviewController'
+		}).state('recommends',{
+			url:'/recommends',
+			templateUrl: viewsPrefix + 'recommendations.html',
+			controller:'RecommendController'
 		})
 	})
 	.directive('updateTitle', ['$rootScope', '$timeout',

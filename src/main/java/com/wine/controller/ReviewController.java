@@ -25,8 +25,8 @@ public class ReviewController {
     private ReviewDao reviewDao;
 
     @RequestMapping(value  = "reviews", method = RequestMethod.GET)
-    public List<Review> list(){
-        List<Review> result = reviewDao.findAll();
+    public List<Review> list(@RequestParam Long wineId){
+        List<Review> result = reviewDao.findByWineId(wineId);
         return result;
     }
 

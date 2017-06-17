@@ -10,8 +10,9 @@ angular.module('app.controllers', []).controller('WineListController', function(
     }
   };
 }).controller('WineViewController', function($scope, $stateParams, Wine, Review) {
-  $scope.wine = Wine.get({ id: $stateParams.id }); //Get a single wine. Issues a GET to /api/v1/wines/:id
-    $scope.reviews = Review.query({id: $scope.wine.id});
+  $scope.wine = Wine.get({ id: $stateParams.id }, function () {
+      $scope.reviews = Review.query({wineId: $scope.wine.id});
+  }); //Get a single wine. Issues a GET to /api/v1/wines/:id
 }).controller('WineCreateController', function($scope, $state, $stateParams, Wine) {
   $scope.wine = new Wine();  //create new wine instance. Properties will be set via ng-model on UI
 
@@ -58,4 +59,6 @@ angular.module('app.controllers', []).controller('WineListController', function(
             $state.go('wines'); // on success go back to the list i.e. wines state.
         });
     };
+}).controller('RecommendController', function($scope, $state, Recommend){
+    $scope.recommends = Recommend.query(); //create new instance of recommendation
 });

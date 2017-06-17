@@ -22,4 +22,5 @@ public interface ReviewDao extends JpaRepository<Review, Long> {
 @Transactional
 public interface ReviewDao extends JpaRepository<Review, Long> {
     public List<Review> findByWineId(long id);
+    public List<Review> findByUsername(String username);
 }

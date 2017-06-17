@@ -11,4 +11,5 @@ import javax.transaction.Transactional;
 @Transactional
 public interface WineDao extends JpaRepository<Wine, Long> {
     public Wine findByName(String name);
+    public Wine findById(long id);
 }
