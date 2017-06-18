@@ -11,7 +11,18 @@ import org.springframework.data.domain.Pageable;
 /**
  * Created by Judith on 07.06.2017.
  */
-public class Recommend {
+public class Recommend implements Comparable<Recommend> {
     public Wine wine;
     public long value;
+
+    public Recommend(Wine wine, long value)
+    {
+        this.wine = wine;
+        this.value = value;
+    }
+
+    @Override
+    public int compareTo(Recommend recommend) {
+        return (int)(recommend.value - value);
+    }
 }
