@@ -1,6 +1,6 @@
 angular.module('app.controllers', []).controller('WineListController', function($scope, $state, popupService, $window, Wine) {
   $scope.wines = Wine.query(); //fetch all wines. Issues a GET to /api/vi/wines
-
+  $scope.isAdmin = localStorage.getItem("isAdmin");
   $scope.deleteWine = function(wine) { // Delete a Wine. Issues a DELETE to /api/v1/wines/:id
     if (popupService.showPopup('Are you sure?')) {
       wine.$delete(function() {
@@ -45,6 +45,7 @@ angular.module('app.controllers', []).controller('WineListController', function(
     $scope.login = function() {
         $scope.auth.$save(function(respone) {
             window.localStorage.setItem('token', respone.token);
+            window.localStorage.setItem('isAdmin', respone.isAdmin);
             window.localStorage.setItem('username', $scope.auth.username);
             $rootScope.$broadcast("userLogged");
             $state.go('home');
@@ -61,4 +62,6 @@ angular.module('app.controllers', []).controller('WineListController', function(
     };
 }).controller('RecommendController', function($scope, $state, Recommend){
     $scope.recommends = Recommend.query(); //create new instance of recommendation
+}).controller('UserController', function($scope, User){
+    $scope.users = User.query();
 });

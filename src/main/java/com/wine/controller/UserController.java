@@ -42,6 +42,6 @@ public class UserController {
         Token token = new Token(request.username);
         tokenDao.save(token);
 
-        return new LoginUserResponse(token.toString());
+        return new LoginUserResponse(token.toString(), user.getIsAdmin());
     }
 }

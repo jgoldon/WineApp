@@ -10,7 +10,7 @@
           <td>{{wine.region}}</td>
           <td>
               <a class="btn btn-primary" ui-sref="viewWine({id:wine.id})">View</a>
-              <a class="btn btn-danger"  ng-click="deleteWine(wine)">Delete</a>
+              <a class="btn btn-danger" ng-if="isAdmin == 'true'" ng-click="deleteWine(wine)">Delete</a>
           </td>
       </tr>
   </table>

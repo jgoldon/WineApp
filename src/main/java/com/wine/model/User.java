@@ -22,6 +22,9 @@ public class User {
     @NotNull
     private String hash;
 
+    @NotNull
+    private boolean isAdmin;
+
     public User() {}
     public User(long id){
         this.id = id;
@@ -37,5 +40,9 @@ public class User {
     public boolean isMatch(String password){
         boolean matches = new BCryptPasswordEncoder().matches(password, hash);
         return matches;
+    }
+
+    public boolean getIsAdmin(){
+        return this.isAdmin;
     }
 }

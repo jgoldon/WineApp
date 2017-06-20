@@ -103,6 +103,10 @@
 			url:'/recommends',
 			templateUrl: viewsPrefix + 'recommendations.html',
 			controller:'RecommendController'
+		}).state('users', {
+			url: '/users',
+			templateUrl: viewsPrefix + 'users.html',
+			controller: 'UserController'
 		})
 	})
 	.directive('updateTitle', ['$rootScope', '$timeout',
