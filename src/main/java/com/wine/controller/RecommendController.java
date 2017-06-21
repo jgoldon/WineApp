@@ -97,8 +97,9 @@ public class RecommendController {
         // 5. Posortuj kolekcję:
         Collections.sort(collect);
 
+        List<Recommend> collect2 = collect.subList(0, 10);
 
-        return collect;
+        return collect2;
     }
     //public RecommendController(RecommendDao recommendDao){Authentication authentication = SecurityContextHolder.getContext().getAuthentication();}
 }

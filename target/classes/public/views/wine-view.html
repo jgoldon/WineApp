@@ -31,12 +31,9 @@
   </table>
   <div>
       <a class="btn btn-primary" ui-sref="editWine({id:wine.id})">Edit</a>
+      <a class="btn btn-primary" ui-sref="addReview({id:wine.id})">Add review</a>
   </div>
-    <br>
-    <div>
-        <a class="btn btn-primary" ui-sref="addReview({id:wine.id})">Add review</a>
-    </div>
-    <br>
+
     <div ng-repeat="review in reviews">
         <h5><b>Stars: {{review.stars}}</b></h5>
         <h4><i>{{review.body}}</i></h4>

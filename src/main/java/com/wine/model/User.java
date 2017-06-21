@@ -45,4 +45,15 @@ public class User {
     public boolean getIsAdmin(){
         return this.isAdmin;
     }
+    public String getUsername(){
+        return this.username;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

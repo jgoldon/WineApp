@@ -1,5 +1,6 @@
 package com.wine.controller;
 
+import com.wine.model.ReviewDao;
 import com.wine.model.Wine;
 import com.wine.model.WineDao;
 import org.hibernate.*;
@@ -32,12 +33,16 @@ import java.util.Set;
 @RestController
 @RequestMapping("api/v1/")
 public class WineController {
-    public WineController(WineDao wineDao){
+    public WineController(WineDao wineDao, ReviewDao reviewDao){
         this.wineDao = wineDao;
+        this.reviewDao = reviewDao;
     }
 
     @Autowired
     private WineDao wineDao;
+
+    @Autowired
+    private ReviewDao reviewDao;
 
     @RequestMapping(value  = "wines", method = RequestMethod.GET)
     public List<Wine> list(){
@@ -65,6 +70,7 @@ public class WineController {
         entity.varietal = wine.varietal;
         entity.vintage = wine.vintage;
         entity.description = wine.description;
+        entity.rating = 0;
         wineDao.save(entity);
         return entity;
     }

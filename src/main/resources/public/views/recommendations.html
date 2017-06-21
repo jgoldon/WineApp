@@ -1,7 +1,7 @@
 <div class="container pad-top">
     <table class="table recommend">
         <tr>
-            <td><h3>Recommendations</h3></td>
+            <td><h3>You should try:</h3></td>
             <td></td>
         </tr>
         <tr ng-repeat="recommend in recommends">
@@ -12,4 +12,19 @@
             </td>
         </tr>
     </table>
+
+    <table class="table oddity">
+        <tr>
+            <td><h3>Maybe something different?</h3></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="oddity in oddities">
+            <td>{{oddity.wine.name}}</td>
+            <td>{{oddity.value}}</td>
+            <td>
+                <a class="btn btn-primary" ui-sref="viewWine({id:oddity.wine.id})">View</a>
+            </td>
+        </tr>
+    </table>
+
 </div>

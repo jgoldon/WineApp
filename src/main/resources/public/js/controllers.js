@@ -62,6 +62,14 @@ angular.module('app.controllers', []).controller('WineListController', function(
     };
 }).controller('RecommendController', function($scope, $state, Recommend){
     $scope.recommends = Recommend.query(); //create new instance of recommendation
-}).controller('UserController', function($scope, User){
+}).controller('UserController', function($scope, $state, popupService, $window, User){
     $scope.users = User.query();
+    $scope.deleteUser = function(user) { // Delete a user. Issues a DELETE to /api/v1/users/:id
+        if (popupService.showPopup('Are you sure?')) {
+            user.$delete(function() {
+                $scope.users = User.query();
+                $state.go('users');
+            });
+        }
+    };
 });

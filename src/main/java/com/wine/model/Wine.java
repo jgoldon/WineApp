@@ -33,19 +33,21 @@ public class Wine {
 
     public String description;
 
+    public double rating;
 
     public Wine() {}
     public Wine(long id){
         this.id = id;
     }
 
-    public Wine(String region, String name, String category, String varietal, int vintage, String description) {
+    public Wine(String region, String name, String category, String varietal, int vintage, String description, double rating) {
         this.region = region;
         this.name = name;
         this.category = category;
         this.varietal = varietal;
         this.vintage = vintage;
         this.description = description;
+        this.rating = rating;
     }
     public Long getId() {
         return id;

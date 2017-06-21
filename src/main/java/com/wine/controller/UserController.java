@@ -7,6 +7,8 @@ import javassist.tools.web.BadHttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by Judith on 21.05.2017.
  */
@@ -24,6 +26,11 @@ public class UserController {
     @Autowired
     private TokenDao tokenDao;
 
+    @RequestMapping(value  = "users", method = RequestMethod.GET)
+    public List<User> list(){
+        List<User> result = userDao.findAll();
+        return result;
+    }
     @RequestMapping(value  = "users", method = RequestMethod.POST)
     public void create(@RequestBody RegisterUserRequest request){
         User user = new User(request.username, request.password);
@@ -43,5 +50,12 @@ public class UserController {
         tokenDao.save(token);
 
         return new LoginUserResponse(token.toString(), user.getIsAdmin());
+    }
+
+    @RequestMapping(value  = "users/{id}", method = RequestMethod.DELETE)
+    public User delete(@PathVariable Long id){
+        User entity = userDao.findOne(id);
+        userDao.delete(entity);
+        return entity;
     }
 }

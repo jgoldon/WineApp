@@ -1,0 +1,15 @@
+<div class="container pad-top">
+    <table class="table usertable">
+        <tr>
+            <td><h3>All users</h3></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="user in users">
+            <td>{{user.username}}</td>
+            <td>{{user.isAdmin}}</td>
+            <td>
+                <a class="btn btn-warning" ng-click="deleteUser(user)">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
