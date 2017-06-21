@@ -70,7 +70,6 @@ public class WineController {
         entity.varietal = wine.varietal;
         entity.vintage = wine.vintage;
         entity.description = wine.description;
-        entity.rating = 0;
         wineDao.save(entity);
         return entity;
     }

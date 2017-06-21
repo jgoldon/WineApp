@@ -11,7 +11,11 @@ angular.module('app.controllers', []).controller('WineListController', function(
   };
 }).controller('WineViewController', function($scope, $stateParams, Wine, Review) {
   $scope.wine = Wine.get({ id: $stateParams.id }, function () {
-      $scope.reviews = Review.query({wineId: $scope.wine.id});
+      $scope.reviews = Review.query({wineId: $scope.wine.id}, function(){
+          var allStars = $scope.reviews.map(function(x) { return x.stars });
+          var allStarsSum = allStars.reduce(function(a, b) { return a + b }, 0);
+          $scope.rating = allStarsSum / allStars.length;
+      });
   }); //Get a single wine. Issues a GET to /api/v1/wines/:id
 }).controller('WineCreateController', function($scope, $state, $stateParams, Wine) {
   $scope.wine = new Wine();  //create new wine instance. Properties will be set via ng-model on UI

@@ -33,8 +33,6 @@ public class Wine {
 
     public String description;
 
-    public double rating;
-
     public Wine() {}
     public Wine(long id){
         this.id = id;
@@ -47,7 +45,6 @@ public class Wine {
         this.varietal = varietal;
         this.vintage = vintage;
         this.description = description;
-        this.rating = rating;
     }
     public Long getId() {
         return id;
