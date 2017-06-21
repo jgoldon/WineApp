@@ -20,7 +20,7 @@ public class App
     public FilterRegistrationBean auditFilterRegistration(TokenDao tokenDao) {
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
         filterRegistrationBean.setFilter(new AuthenticationFilter(tokenDao));
-        filterRegistrationBean.addUrlPatterns("/api/v1/wines", "/api/v1/wines/*", "/api/v1/reviews", "/api/v1/recommends");
+        filterRegistrationBean.addUrlPatterns("/api/v1/wines", "/api/v1/wines/*", "/api/v1/reviews", "/api/v1/recommends", "/api/v1/oddities");
         return filterRegistrationBean;
     }
 

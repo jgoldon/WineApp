@@ -60,8 +60,9 @@ angular.module('app.controllers', []).controller('WineListController', function(
             $state.go('wines'); // on success go back to the list i.e. wines state.
         });
     };
-}).controller('RecommendController', function($scope, $state, Recommend){
+}).controller('RecommendController', function($scope, $state, Recommend, Oddity){
     $scope.recommends = Recommend.query(); //create new instance of recommendation
+    $scope.oddities = Oddity.query(); //create new instance of recommendation
 }).controller('UserController', function($scope, $state, popupService, $window, User){
     $scope.users = User.query();
     $scope.deleteUser = function(user) { // Delete a user. Issues a DELETE to /api/v1/users/:id

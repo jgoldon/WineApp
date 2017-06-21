@@ -24,8 +24,7 @@ public class RecommendController {
         this.reviewDao = reviewDao;
     }
 
-    @RequestMapping(value  = "recommends", method = RequestMethod.GET)
-    public List<Recommend> getRecommenadtions()
+    public List<Recommend> recommendAlgorithm()
     {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -96,8 +95,20 @@ public class RecommendController {
 
         // 5. Posortuj kolekcję:
         Collections.sort(collect);
+        return collect;
+    }
+    @RequestMapping(value  = "recommends", method = RequestMethod.GET)
+    public List<Recommend> getRecommenadtions()
+    {
+        List<Recommend> collect2 = recommendAlgorithm().subList(0, 10);
 
-        List<Recommend> collect2 = collect.subList(0, 10);
+        return collect2;
+    }
+
+    @RequestMapping(value  = "oddities", method = RequestMethod.GET)
+    public List<Recommend> getOddities()
+    {
+        List<Recommend> collect2 = recommendAlgorithm().subList(recommendAlgorithm().size() - 10, recommendAlgorithm().size());
 
         return collect2;
     }

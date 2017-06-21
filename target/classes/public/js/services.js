@@ -31,4 +31,6 @@ angular.module('app.services', []).factory('Wine', function($resource) {
     });
 }).factory('Recommend', function($resource){
     return $resource('/api/v1/recommends')
+}).factory('Oddity', function($resource){
+    return $resource('/api/v1/oddities')
 });

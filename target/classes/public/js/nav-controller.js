@@ -67,17 +67,11 @@ angular.module('navController', [])
 				return !$scope.isLogged;
 			}
 
-            if(page.name == 'Wines'){
+            if(page.name == 'Wines' || page.name == 'Recommendations'){
                 return $scope.isLogged;
             }
 
             if(page.name == 'Users'){
-            	console.log("scope2", $scope.isLogged && $scope.isAdmin);
-                return ($scope.isLogged && $scope.isAdmin) == 'true';
-            }
-
-            if(page.name == 'Recommendations'){
-                console.log("scope2", $scope.isLogged && $scope.isAdmin);
                 return ($scope.isLogged && $scope.isAdmin) == 'true';
             }
 
